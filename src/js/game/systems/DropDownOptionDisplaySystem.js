@@ -1,11 +1,11 @@
 define([
     'ash', 
-    'game/nodes/PersonDisplayNode', 
+    'game/nodes/DropDownOptionDisplayNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, PersonDisplayNode, Components, $, sp) {
-    var PersonDisplaySystem = Ash.System.extend({
+], function (Ash, DropDownOptionDisplayNode, Components, $, sp) {
+    var DropDownOptionDisplaySystem = Ash.System.extend({
         nodes: null,
 
         constructor: function () {
@@ -13,7 +13,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(PersonDisplayNode);
+            this.nodes = engine.getNodeList(DropDownOptionDisplayNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -29,23 +29,28 @@ define([
         addNode: function (node) {
             // create htmlObject
             var html = [
-                "<div class='soldier'>",
-                    "<span class='first'>",
-                        node.name.first,
-                    "</span> ",
-                    "<span class='last'>",
-                        node.name.last,
-                    "</span>",
-                "</div>",
+                "<option>",
+                    node.dropDownOption.caption,
+                "</option>",
             ];
             var htmlObject = $(html.join("\n"));
             node.entity.add(new Components.HTMLObject(htmlObject));
 
+            // add reference to option entity
+            htmlObject[0].entity = node.entity;
+
             // append it to the DOM in a default location if there 
             // is no parent yet (due to other systems)
             if(htmlObject.parent().length==0) {
-                htmlObject.appendTo($("#soldiers"));
+                // no default
+                var ddHTML = node.dropDownOption.dropDownList.get(Components.HTMLObject);
+                if(ddHTML!==null){
+                    htmlObject.appendTo(ddHTML.htmlObject.find("select"));
+                } else {
+                    console.log("no htmlobject, this case wasn't considered... and now???");
+                }
             }
+
         },
 
         removeNode: function (node) {
@@ -63,5 +68,5 @@ define([
         }
     });
 
-    return PersonDisplaySystem;
+    return DropDownOptionDisplaySystem;
 });

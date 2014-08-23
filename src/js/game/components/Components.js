@@ -12,6 +12,14 @@ define([
     'game/components/CreateSquadCommand',
     'game/components/SquadName',
     'game/components/RequestSquadName',
+    'game/components/ChangeSquadCommand',
+    'game/components/WithoutSquad',
+    'game/components/CanChangeSquad',
+    'game/components/DropDownList',
+    'game/components/Affects',
+    'game/components/ChangingSquad',
+    'game/components/DropDownOption',
+    'game/components/GotSelected',
 
     // insert new componente above
     'ash'
@@ -29,6 +37,14 @@ define([
     CreateSquadCommand,
     SquadName,
     RequestSquadName,
+    ChangeSquadCommand,
+    WithoutSquad,
+    CanChangeSquad,
+    DropDownList,
+    Affects,
+    ChangingSquad,
+    DropDownOption,
+    GotSelected,
 
     // insert new componente above
     Ash
@@ -47,6 +63,14 @@ define([
         CreateSquadCommand: CreateSquadCommand,
         SquadName: SquadName,
         RequestSquadName: RequestSquadName,
+        ChangeSquadCommand: ChangeSquadCommand,
+        WithoutSquad: WithoutSquad,
+        CanChangeSquad: CanChangeSquad,
+        DropDownList: DropDownList,
+        Affects: Affects,
+        ChangingSquad: ChangingSquad,
+        DropDownOption: DropDownOption,
+        GotSelected: GotSelected,
 
         // insert new componente above
     

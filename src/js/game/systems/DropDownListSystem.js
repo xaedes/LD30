@@ -1,11 +1,11 @@
 define([
     'ash', 
-    'game/nodes/PersonDisplayNode', 
+    'game/nodes/DropDownListNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, PersonDisplayNode, Components, $, sp) {
-    var PersonDisplaySystem = Ash.System.extend({
+], function (Ash, DropDownListNode, Components, $, sp) {
+    var DropDownListSystem = Ash.System.extend({
         nodes: null,
 
         constructor: function () {
@@ -13,7 +13,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(PersonDisplayNode);
+            this.nodes = engine.getNodeList(DropDownListNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -29,22 +29,31 @@ define([
         addNode: function (node) {
             // create htmlObject
             var html = [
-                "<div class='soldier'>",
-                    "<span class='first'>",
-                        node.name.first,
-                    "</span> ",
-                    "<span class='last'>",
-                        node.name.last,
-                    "</span>",
+                "<div>",
+                    "<select>",
+                    "</select>",
+                    "<button>",
+                        node.dropDownList.caption,
+                    "</button>",
                 "</div>",
             ];
             var htmlObject = $(html.join("\n"));
             node.entity.add(new Components.HTMLObject(htmlObject));
 
+            var select = htmlObject.find("select");
+            htmlObject.find("button").click(function() {
+                var selected = select.find("option:selected");
+                if(selected.length>0) {
+                    var optionEntity = selected[0].entity;
+                    optionEntity.add(new Components.GotSelected());
+                }
+            });
+            
+
             // append it to the DOM in a default location if there 
             // is no parent yet (due to other systems)
             if(htmlObject.parent().length==0) {
-                htmlObject.appendTo($("#soldiers"));
+                // no default
             }
         },
 
@@ -63,5 +72,5 @@ define([
         }
     });
 
-    return PersonDisplaySystem;
+    return DropDownListSystem;
 });

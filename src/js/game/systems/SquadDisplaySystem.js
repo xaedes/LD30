@@ -28,7 +28,7 @@ define([
 
         addNode: function (node) {
             // create htmlObject
-            html = [
+            var html = [
                 "<div class='squad'>",
                     "<h2>",
                         node.name.name,
@@ -36,7 +36,7 @@ define([
                 "</div>",
             ];
 
-            htmlObject = $(html.join("\n"));
+            var htmlObject = $(html.join("\n"));
             node.entity.add(new Components.HTMLObject(htmlObject));
 
 

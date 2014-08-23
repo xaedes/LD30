@@ -1,11 +1,11 @@
 define([
     'ash', 
-    'game/nodes/ButtonDisplayNode', 
+    'game/nodes/ChangeSquadCommandNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, ButtonDisplayNode, Components, $, sp) {
-    var ButtonDisplaySystem = Ash.System.extend({
+], function (Ash, ChangeSquadCommandNode, Components, $, sp) {
+    var ChangeSquadCommandSystem = Ash.System.extend({
         nodes: null,
 
         constructor: function () {
@@ -13,7 +13,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(ButtonDisplayNode);
+            this.nodes = engine.getNodeList(ChangeSquadCommandNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -27,20 +27,9 @@ define([
 
 
         addNode: function (node) {
-            // create htmlObject
-            var html = [
-                "<button>",
-                    node.button.caption,
-                "</button>",
-            ];
-            var htmlObject = $(html.join("\n"));
-            node.entity.add(new Components.HTMLObject(htmlObject));
-
-            // append it to the DOM in a default location if there 
-            // is no parent yet (due to other systems)
-            if(htmlObject.parent().length==0) {
-                htmlObject.appendTo($("#commandos"));
-            }
+            node.cmd.soldier.remove(Components.SquadMember);
+            node.cmd.soldier.remove(Components.WithoutSquad());
+            node.cmd.soldier.add(new Components.SquadMember(node.cmd.squad));
         },
 
         removeNode: function (node) {
@@ -58,5 +47,5 @@ define([
         }
     });
 
-    return ButtonDisplaySystem;
+    return ChangeSquadCommandSystem;
 });

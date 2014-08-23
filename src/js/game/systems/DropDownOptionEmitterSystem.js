@@ -1,19 +1,21 @@
 define([
     'ash', 
-    'game/nodes/ButtonDisplayNode', 
+    'game/nodes/DropDownOptionEmitterNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, ButtonDisplayNode, Components, $, sp) {
-    var ButtonDisplaySystem = Ash.System.extend({
+], function (Ash, DropDownOptionEmitterNode, Components, $, sp) {
+    var DropDownOptionEmitterSystem = Ash.System.extend({
         nodes: null,
+        creator: null,
 
-        constructor: function () {
+        constructor: function (creator) {
+            this.creator = creator;
             return this;
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(ButtonDisplayNode);
+            this.nodes = engine.getNodeList(DropDownOptionEmitterNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -27,20 +29,8 @@ define([
 
 
         addNode: function (node) {
-            // create htmlObject
-            var html = [
-                "<button>",
-                    node.button.caption,
-                "</button>",
-            ];
-            var htmlObject = $(html.join("\n"));
-            node.entity.add(new Components.HTMLObject(htmlObject));
-
-            // append it to the DOM in a default location if there 
-            // is no parent yet (due to other systems)
-            if(htmlObject.parent().length==0) {
-                htmlObject.appendTo($("#commandos"));
-            }
+            var emission = this.creator.createEntity();            
+            emission.add(construct(node.emits.componentClass, node.emits.constructorArguments));
         },
 
         removeNode: function (node) {
@@ -58,5 +48,5 @@ define([
         }
     });
 
-    return ButtonDisplaySystem;
+    return DropDownOptionEmitterSystem;
 });
