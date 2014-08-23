@@ -28,12 +28,12 @@ define([
 
         addNode: function (node) {
             // create htmlObject
-            html = [
+            var html = [
                 "<button>",
                     node.button.caption,
                 "</button>",
             ];
-            htmlObject = $(html.join("\n"));
+            var htmlObject = $(html.join("\n"));
             node.entity.add(new Components.HTMLObject(htmlObject));
 
             // append it to the DOM in a default location if there 
