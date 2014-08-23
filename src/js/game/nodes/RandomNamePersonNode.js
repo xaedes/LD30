@@ -5,9 +5,10 @@ define([
     Ash, 
     Components
 ) {
-    var RandomNameNode = Ash.Node.create({
+    var RandomNamePersonNode = Ash.Node.create({
+        person : Components.Person,
         randomName : Components.RandomName,
     });
 
-    return RandomNameNode;
+    return RandomNamePersonNode;
 });

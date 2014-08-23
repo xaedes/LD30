@@ -1,13 +1,13 @@
 define([
     'ash', 
-    'game/nodes/RandomNameNode', 
+    'game/nodes/RandomNamePersonNode', 
     'game/components/Components',
     'jquery', 
     'sprintf',
     'chancejs',
-], function (Ash, RandomNameNode, Components, $, sp, Chance) {
+], function (Ash, RandomNamePersonNode, Components, $, sp, Chance) {
     var RandomNameSystem = Ash.System.extend({
-        nodes: null,
+        nodesPersonName: null,
 
         constructor: function () {
             this.chance = new Chance();
@@ -15,21 +15,21 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(RandomNameNode);
-            for(var node = this.nodes.head; node; node = node.next) {
-                this.addNode(node);
+            this.nodesPersonName = engine.getNodeList(RandomNamePersonNode);
+            for(var node = this.nodesPersonName.head; node; node = node.next) {
+                this.addNodePersonName(node);
             }
-            this.nodes.nodeAdded.add(this.addNode, this);
-            this.nodes.nodeRemoved.add(this.removeNode, this);
+            this.nodesPersonName.nodeAdded.add(this.addNodePersonName, this);
+            this.nodesPersonName.nodeRemoved.add(this.removeNode, this);
         },
 
         removeFromEngine: function (engine) {
-            this.nodes = null;
+            this.nodesPersonName = null;
         },
 
 
-        addNode: function (node) {
-            node.entity.add(new Components.Name(this.chance.first(),this.chance.last()));
+        addNodePersonName: function (node) {
+            node.entity.add(new Components.PersonName(this.chance.first(),this.chance.last()));
         },
 
         removeNode: function (node) {
@@ -41,7 +41,7 @@ define([
         },
 
         update: function (time) {
-            for(var node = this.nodes.head; node; node = node.next) {
+            for(var node = this.nodesPersonName.head; node; node = node.next) {
                 this.updateNode(node);
             }
         }

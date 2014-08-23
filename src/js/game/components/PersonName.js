@@ -1,5 +1,5 @@
 define(['ash'], function (Ash) {
-    var Name = Ash.Class.extend({
+    var PersonName = Ash.Class.extend({
         first: null,
         last: null,
         constructor: function (first, last) {
@@ -8,7 +8,7 @@ define(['ash'], function (Ash) {
         }
     });
 
-    return Name;
+    return PersonName;
 });
 
 // todo : don't forget to add this component to Components.js
