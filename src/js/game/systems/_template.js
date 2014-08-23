@@ -13,7 +13,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(MaxNode);
+            this.nodes = engine.getNodeList(???Node);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
