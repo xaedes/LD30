@@ -41,10 +41,10 @@ define([
             this.game.addEntity(entity);
             return entity;
         },
-        createChangeSquadButton: function() {
+        createChangeSquadInterface: function(soldier) {
             var entity = new Ash.Entity()
                 .add(new Components.Display())
-                .add(new Components.Button("Change Squad"))
+                .add(new Components.DropDownList("Change Squad"))
                 .add(new Components.Emits(Components.ChangeSquadCommand))
                 ;
             this.game.addEntity(entity);
