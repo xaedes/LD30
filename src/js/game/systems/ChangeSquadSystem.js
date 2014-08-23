@@ -53,7 +53,7 @@ define([
 
             // create options
             for(var squadNode = this.squadNodes.head; squadNode; squadNode = squadNode.next) {
-                this.creator.createChangeSquadOption(dropdown, soldierNode.entity, squadNode.entity, squadNode.name);
+                this.creator.createChangeSquadOption(dropdown, soldierNode.entity, squadNode.entity, squadNode.name.name);
             }
         },
 
@@ -91,7 +91,7 @@ define([
                     dropdownNode.entity,            // dropDownList
                     dropdownNode.affects.entity,    // soldier
                     squadNode.entity,               // squad
-                    squadNode.name);                // caption
+                    squadNode.name.name);                // caption
             }
 
 

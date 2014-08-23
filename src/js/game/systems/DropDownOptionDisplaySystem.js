@@ -1,11 +1,11 @@
 define([
     'ash', 
-    'game/nodes/DropDownListNode', 
+    'game/nodes/DropDownOptionDisplayNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, DropDownListNode, Components, $, sp) {
-    var DropDownListSystem = Ash.System.extend({
+], function (Ash, DropDownOptionDisplayNode, Components, $, sp) {
+    var DropDownOptionDisplaySystem = Ash.System.extend({
         nodes: null,
 
         constructor: function () {
@@ -13,7 +13,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(DropDownListNode);
+            this.nodes = engine.getNodeList(DropDownOptionDisplayNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -29,32 +29,28 @@ define([
         addNode: function (node) {
             // create htmlObject
             var html = [
-                "<div>",
-                    "<select>",
-                    "</select>",
-                    "<button>",
-                        node.dropDownList.caption,
-                    "</button>",
-                "</div>",
+                "<option>",
+                    node.dropDownOption.caption,
+                "</option>",
             ];
             var htmlObject = $(html.join("\n"));
             node.entity.add(new Components.HTMLObject(htmlObject));
 
-            var select = htmlObject.find("select");
-            htmlObject.find("button").click(function() {
-                var selected = select.find("option:selected");
-                if(selected.length>0) {
-                    var optionEntity = selected[0].entity;
-                    optionEntity.add(new Components.GotSelected());
-                }
-            });
-            
+            // add reference to option entity
+            htmlObject[0].entity = node.entity;
 
             // append it to the DOM in a default location if there 
             // is no parent yet (due to other systems)
             if(htmlObject.parent().length==0) {
                 // no default
+                var ddHTML = node.dropDownOption.dropDownList.get(Components.HTMLObject);
+                if(ddHTML!==null){
+                    htmlObject.appendTo(ddHTML.htmlObject.find("select"));
+                } else {
+                    console.log("no htmlobject, this case wasn't considered... and now???");
+                }
             }
+
         },
 
         removeNode: function (node) {
@@ -72,5 +68,5 @@ define([
         }
     });
 
-    return DropDownListSystem;
+    return DropDownOptionDisplaySystem;
 });

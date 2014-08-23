@@ -1,6 +1,7 @@
 define(function () {
     var SystemPriorities = {
-        only : 0,
+        only : 1,
+        dropdownoptions : 0,
     };
     return SystemPriorities;
 });
