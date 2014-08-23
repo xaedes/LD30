@@ -11,8 +11,8 @@ define([
     'game/systems/ButtonDisplaySystem',    
     'game/systems/ButtonEmitterSystem',    
     'game/systems/RandomNameSystem',    
-    'game/systems/HireCommandoSystem',    
-    'game/systems/CreateSquadCommandoSystem',    
+    'game/systems/HireCommandSystem',    
+    'game/systems/CreateSquadCommandSystem',    
     'game/systems/RequestSquadNameSystem',    
 
     'game/systems/SystemPriorities',    
@@ -30,8 +30,8 @@ define([
     ButtonDisplaySystem,
     ButtonEmitterSystem,
     RandomNameSystem,
-    HireCommandoSystem,
-    CreateSquadCommandoSystem,
+    HireCommandSystem,
+    CreateSquadCommandSystem,
     RequestSquadNameSystem,
 
     SystemPriorities,
@@ -58,8 +58,8 @@ define([
             this.engine.addSystem( new ButtonDisplaySystem(),                   SystemPriorities.only);
             this.engine.addSystem( new ButtonEmitterSystem(this.creator),       SystemPriorities.only);
             this.engine.addSystem( new RandomNameSystem(),                      SystemPriorities.only);
-            this.engine.addSystem( new HireCommandoSystem(this.creator),        SystemPriorities.only);
-            this.engine.addSystem( new CreateSquadCommandoSystem(this.creator), SystemPriorities.only);
+            this.engine.addSystem( new HireCommandSystem(this.creator),        SystemPriorities.only);
+            this.engine.addSystem( new CreateSquadCommandSystem(this.creator), SystemPriorities.only);
             this.engine.addSystem( new RequestSquadNameSystem(),                SystemPriorities.only);
 
 

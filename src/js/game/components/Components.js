@@ -8,8 +8,8 @@ define([
     'game/components/HTMLObject',
     'game/components/Button',
     'game/components/Emits',
-    'game/components/HireCommando',
-    'game/components/CreateSquadCommando',
+    'game/components/HireCommand',
+    'game/components/CreateSquadCommand',
     'game/components/SquadName',
     'game/components/RequestSquadName',
 
@@ -25,8 +25,8 @@ define([
     HTMLObject,
     Button,
     Emits,
-    HireCommando,
-    CreateSquadCommando,
+    HireCommand,
+    CreateSquadCommand,
     SquadName,
     RequestSquadName,
 
@@ -43,8 +43,8 @@ define([
         HTMLObject: HTMLObject,
         Button: Button,
         Emits: Emits,
-        HireCommando: HireCommando,
-        CreateSquadCommando: CreateSquadCommando,
+        HireCommand: HireCommand,
+        CreateSquadCommand: CreateSquadCommand,
         SquadName: SquadName,
         RequestSquadName: RequestSquadName,
 

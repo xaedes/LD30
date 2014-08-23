@@ -27,7 +27,7 @@ define([
             var entity = new Ash.Entity()
                 .add(new Components.Display())
                 .add(new Components.Button("Hire"))
-                .add(new Components.Emits(Components.HireCommando))
+                .add(new Components.Emits(Components.HireCommand))
                 ;
             this.game.addEntity(entity);
             return entity;
@@ -36,7 +36,7 @@ define([
             var entity = new Ash.Entity()
                 .add(new Components.Display())
                 .add(new Components.Button("Create Squad"))
-                .add(new Components.Emits(Components.CreateSquadCommando))
+                .add(new Components.Emits(Components.CreateSquadCommand))
                 ;
             this.game.addEntity(entity);
             return entity;

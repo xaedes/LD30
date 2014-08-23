@@ -1,10 +1,10 @@
 define(['ash'], function (Ash) {
-    var CreateSquadCommando = Ash.Class.extend({
+    var CreateSquadCommand = Ash.Class.extend({
         constructor: function () {
         }
     });
 
-    return CreateSquadCommando;
+    return CreateSquadCommand;
 });
 
 // todo : don't forget to add this component to Components.js

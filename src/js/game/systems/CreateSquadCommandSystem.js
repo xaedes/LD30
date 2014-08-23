@@ -1,11 +1,11 @@
 define([
     'ash', 
-    'game/nodes/CreateSquadCommandoNode', 
+    'game/nodes/CreateSquadCommandNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, CreateSquadCommandoNode, Components, $, sp) {
-    var CreateSquadCommandoSystem = Ash.System.extend({
+], function (Ash, CreateSquadCommandNode, Components, $, sp) {
+    var CreateSquadCommandSystem = Ash.System.extend({
         nodes: null,
         creator: null,
 
@@ -15,7 +15,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(CreateSquadCommandoNode);
+            this.nodes = engine.getNodeList(CreateSquadCommandNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -32,7 +32,7 @@ define([
             // hire a person
             this.creator.createSquad();
             
-            // commando finished -> destroy
+            // command finished -> destroy
             this.creator.destroyEntity(node.entity);
         },
 
@@ -51,5 +51,5 @@ define([
         }
     });
 
-    return CreateSquadCommandoSystem;
+    return CreateSquadCommandSystem;
 });

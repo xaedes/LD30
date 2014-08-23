@@ -1,11 +1,11 @@
 define([
     'ash', 
-    'game/nodes/HireCommandoNode', 
+    'game/nodes/HireCommandNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, HireCommandoNode, Components, $, sp) {
-    var HireCommandoSystem = Ash.System.extend({
+], function (Ash, HireCommandNode, Components, $, sp) {
+    var HireCommandSystem = Ash.System.extend({
         nodes: null,
         creator: null,
 
@@ -15,7 +15,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(HireCommandoNode);
+            this.nodes = engine.getNodeList(HireCommandNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -32,7 +32,7 @@ define([
             // hire a person
             this.creator.createSoldier(null);
             
-            // commando finished -> destroy
+            // command finished -> destroy
             this.creator.destroyEntity(node.entity);
         },
 
@@ -51,5 +51,5 @@ define([
         }
     });
 
-    return HireCommandoSystem;
+    return HireCommandSystem;
 });
