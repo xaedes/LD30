@@ -1,7 +1,9 @@
 define(['ash'], function (Ash) {
     var DropDownOption = Ash.Class.extend({
+        dropDownList: null,
         caption: null,
-        constructor: function (caption) {
+        constructor: function (dropDownList, caption) {
+            this.dropDownList = dropDownList;
             this.caption = caption;
         }
     });

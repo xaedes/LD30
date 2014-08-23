@@ -51,10 +51,10 @@ define([
             this.game.addEntity(entity);
             return entity;
         },
-        createChangeSquadOption: function(soldier, squad, caption) {
+        createChangeSquadOption: function(dropDownList, soldier, squad, caption) {
             var entity = new Ash.Entity()
                 .add(new Components.Display())
-                .add(new Components.DropDownOption(caption))
+                .add(new Components.DropDownOption(dropDownList, caption))
                 .add(new Components.Affects(soldier))
                 .add(new Components.ChangingSquad())
                 ;
