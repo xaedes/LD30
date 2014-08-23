@@ -13,6 +13,7 @@ define([
     'game/systems/RandomNameSystem',    
     'game/systems/HireCommandoSystem',    
     'game/systems/CreateSquadCommandoSystem',    
+    'game/systems/RequestSquadNameSystem',    
 
     'game/systems/SystemPriorities',    
     'game/EntityCreator', 
@@ -31,6 +32,7 @@ define([
     RandomNameSystem,
     HireCommandoSystem,
     CreateSquadCommandoSystem,
+    RequestSquadNameSystem,
 
     SystemPriorities,
     EntityCreator
@@ -58,6 +60,7 @@ define([
             this.engine.addSystem( new RandomNameSystem(),                      SystemPriorities.only);
             this.engine.addSystem( new HireCommandoSystem(this.creator),        SystemPriorities.only);
             this.engine.addSystem( new CreateSquadCommandoSystem(this.creator), SystemPriorities.only);
+            this.engine.addSystem( new RequestSquadNameSystem(),                SystemPriorities.only);
 
 
             this.creator.createHireButton();

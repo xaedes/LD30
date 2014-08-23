@@ -30,6 +30,9 @@ define([
             // create htmlObject
             html = [
                 "<div class='squad'>",
+                    "<h2>",
+                        node.name.name,
+                    "</h2>",
                 "</div>",
             ];
 

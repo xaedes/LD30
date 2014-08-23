@@ -45,6 +45,7 @@ define([
             var entity = new Ash.Entity()
                 .add(new Components.Squad())
                 .add(new Components.Display())
+                .add(new Components.RequestSquadName())
                 ;
             this.game.addEntity(entity);
             return entity;
