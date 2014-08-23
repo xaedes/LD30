@@ -30,7 +30,7 @@ define([
             // create htmlObject
             var html = [
                 "<button>",
-                    node.button.caption,
+                    node.dropDownList.caption,
                 "</button>",
             ];
             var htmlObject = $(html.join("\n"));
@@ -39,7 +39,7 @@ define([
             // append it to the DOM in a default location if there 
             // is no parent yet (due to other systems)
             if(htmlObject.parent().length==0) {
-                htmlObject.appendTo($("#commandos"));
+                // no default
             }
         },
 
