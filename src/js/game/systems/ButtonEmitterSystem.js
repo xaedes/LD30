@@ -32,7 +32,8 @@ define([
             var self = this;
             node.htmlObject.htmlObject.click(function () {
                 var emission = self.creator.createEntity();
-                emission.add(new node.emits.componentClass());
+                //emission.add(new node.emits.componentClass());
+                emission.add(construct(node.emits.componentClass, node.emits.constructorArguments));
             });
         },
 

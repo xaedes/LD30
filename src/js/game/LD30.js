@@ -68,12 +68,12 @@ define([
             this.engine.addSystem( new ButtonDisplaySystem(),                       SystemPriorities.only);
             this.engine.addSystem( new ButtonEmitterSystem(this.creator),           SystemPriorities.only);
             this.engine.addSystem( new RandomNameSystem(),                          SystemPriorities.only);
-            this.engine.addSystem( new HireCommandSystem(this.creator),            SystemPriorities.only);
-            this.engine.addSystem( new CreateSquadCommandSystem(this.creator),     SystemPriorities.only);
+            this.engine.addSystem( new HireCommandSystem(this.creator),             SystemPriorities.only);
+            this.engine.addSystem( new CreateSquadCommandSystem(this.creator),      SystemPriorities.only);
             this.engine.addSystem( new RequestSquadNameSystem(),                    SystemPriorities.only);
             this.engine.addSystem( new ChangeSquadSystem(this.creator),             SystemPriorities.only);
             this.engine.addSystem( new DropDownListSystem(),                        SystemPriorities.only);
-            this.engine.addSystem( new ChangeSquadCommandSystem(),                  SystemPriorities.only);
+            this.engine.addSystem( new ChangeSquadCommandSystem(this.creator),      SystemPriorities.only);
             this.engine.addSystem( new DropDownOptionEmitterSystem(this.creator),   SystemPriorities.only);
             this.engine.addSystem( new DropDownOptionDisplaySystem(),               SystemPriorities.dropdownoptions);
 
