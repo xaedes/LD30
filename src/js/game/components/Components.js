@@ -16,10 +16,11 @@ define([
     'game/components/WithoutSquad',
     'game/components/CanChangeSquad',
     'game/components/DropDownList',
-    'game/components/Affects',
+    'game/components/Affects', //to delete
     'game/components/ChangingSquad',
     'game/components/DropDownOption',
-    'game/components/GotSelected',
+    'game/components/GotSelected', //to delete
+    'game/components/SelectedSquad',
 
     // insert new componente above
     'ash'
@@ -45,6 +46,7 @@ define([
     ChangingSquad,
     DropDownOption,
     GotSelected,
+    SelectedSquad,
 
     // insert new componente above
     Ash
@@ -71,6 +73,7 @@ define([
         ChangingSquad: ChangingSquad,
         DropDownOption: DropDownOption,
         GotSelected: GotSelected,
+        SelectedSquad: SelectedSquad,
 
         // insert new componente above
     
