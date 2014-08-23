@@ -6,6 +6,8 @@ define([
     'brejep/keypoll',
 
     'game/systems/PersonDisplaySystem',    
+    'game/systems/SquadDisplaySystem',    
+    'game/systems/SquadMemberDisplaySystem',    
     'game/systems/RandomNameSystem',    
 
     'game/systems/SystemPriorities',    
@@ -18,6 +20,8 @@ define([
     KeyPoll,
 
     PersonDisplaySystem,
+    SquadDisplaySystem,
+    SquadMemberDisplaySystem,
     RandomNameSystem,
 
     SystemPriorities,
@@ -37,14 +41,17 @@ define([
             this.tickProvider = new TickProvider(null);
 
             this.engine.addSystem( new PersonDisplaySystem(), SystemPriorities.only);
+            this.engine.addSystem( new SquadDisplaySystem(), SystemPriorities.only);
+            this.engine.addSystem( new SquadMemberDisplaySystem(), SystemPriorities.only);
             this.engine.addSystem( new RandomNameSystem(), SystemPriorities.only);
 
             this.creator = new EntityCreator(this.engine);
 
             // create 5 soldiers
 
+            var squad = this.creator.createSquad();
             for (var i = 0; i < 5; i++) {
-                this.creator.createSoldier();
+                this.creator.createSoldier(squad);
             };
 
         },

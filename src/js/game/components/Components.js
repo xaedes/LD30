@@ -3,6 +3,9 @@ define([
     'game/components/Display',
     'game/components/RandomName',
     'game/components/Name',
+    'game/components/Squad',
+    'game/components/SquadMember',
+    'game/components/HTMLObject',
 
     // insert new componente above
     'ash'
@@ -11,6 +14,9 @@ define([
     Display,
     RandomName,
     Name,
+    Squad,
+    SquadMember,
+    HTMLObject,
 
     // insert new componente above
     Ash
@@ -20,6 +26,9 @@ define([
         Display: Display,
         RandomName: RandomName,
         Name: Name,
+        Squad: Squad,
+        SquadMember: SquadMember,
+        HTMLObject: HTMLObject,
 
         // insert new componente above
     

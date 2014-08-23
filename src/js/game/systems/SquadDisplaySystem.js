@@ -1,11 +1,11 @@
 define([
     'ash', 
-    'game/nodes/PersonDisplayNode', 
+    'game/nodes/SquadDisplayNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, PersonDisplayNode, Components, $, sp) {
-    var PersonDisplaySystem = Ash.System.extend({
+], function (Ash, SquadDisplayNode, Components, $, sp) {
+    var SquadDisplaySystem = Ash.System.extend({
         nodes: null,
 
         constructor: function () {
@@ -13,7 +13,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(PersonDisplayNode);
+            this.nodes = engine.getNodeList(SquadDisplayNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -29,22 +29,18 @@ define([
         addNode: function (node) {
             // create htmlObject
             html = [
-                "<div class='soldier'>",
-                    "<span class='first'>",
-                        node.name.first,
-                    "</span> ",
-                    "<span class='last'>",
-                        node.name.last,
-                    "</span>",
+                "<div class='squad'>",
                 "</div>",
             ];
+
             htmlObject = $(html.join("\n"));
             node.entity.add(new Components.HTMLObject(htmlObject));
+
 
             // append it to the DOM in a default location if there 
             // is no parent yet (due to other systems)
             if(htmlObject.parent().length==0) {
-                htmlObject.appendTo($("#soldiers"));
+                htmlObject.appendTo($("#squads"));
             }
         },
 
@@ -63,5 +59,5 @@ define([
         }
     });
 
-    return PersonDisplaySystem;
+    return SquadDisplaySystem;
 });

@@ -19,12 +19,23 @@ define([
             this.game.removeEntity(entity);
         }, 
 
-        createSoldier: function() {
+        createSquad: function() {
+            var entity = new Ash.Entity()
+                .add(new Components.Squad())
+                .add(new Components.Display())
+                ;
+            this.game.addEntity(entity);
+            return entity;
+        },
+        createSoldier: function(squad) {
             var entity = new Ash.Entity()
                 .add(new Components.Person())
                 .add(new Components.RandomName())
                 .add(new Components.Display())
                 ;
+            if(squad!==null) {
+                entity.add(new Components.SquadMember(squad));
+            }
             this.game.addEntity(entity);
             return entity;
         },
