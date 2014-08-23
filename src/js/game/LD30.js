@@ -2,18 +2,24 @@ define([
     'ash',
     'jquery',
     'underscore',
-
-    'game/EntityCreator',    
-
     'brejep/tickprovider',
-    'brejep/keypoll'
+    'brejep/keypoll',
+
+    'game/systems/PersonDisplaySystem',    
+    'game/systems/SystemPriorities',    
+
+    'game/EntityCreator', 
 ], function (
     Ash,
     $,
     _,
-    EntityCreator,
     TickProvider,
-    KeyPoll
+    KeyPoll,
+
+    PersonDisplaySystem,
+    SystemPriorities,
+
+    EntityCreator
 ) {
 
     var LD30 = Ash.Class.extend({
@@ -28,7 +34,15 @@ define([
 
             this.tickProvider = new TickProvider(null);
 
+            this.engine.addSystem( new PersonDisplaySystem(), SystemPriorities.only);
+
             this.creator = new EntityCreator(this.engine);
+
+            // create 5 soldiers
+
+            for (var i = 0; i < 5; i++) {
+                this.creator.createSoldier();
+            };
 
         },
         start: function () {

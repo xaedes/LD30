@@ -17,7 +17,16 @@ define([
 
         destroyEntity: function(entity) {
             this.game.removeEntity(entity);
-        }
+        }, 
+
+        createSoldier: function() {
+            var entity = new Ash.Entity()
+                .add(new Components.Person())
+                .add(new Components.Display())
+                ;
+            this.game.addEntity(entity);
+            return entity;
+        },
     });
 
     return EntityCreator;
