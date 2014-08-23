@@ -1,0 +1,15 @@
+[submodule "src/js/lib/sprintf.js"]
+	path = src/js/lib/sprintf.js
+	url = git@github.com:alexei/sprintf.js.git
+[submodule "src/js/lib/underscore"]
+	path = src/js/lib/underscore
+	url = git@github.com:jashkenas/underscore.git
+[submodule "src/js/lib/lzstring"]
+	path = src/js/lib/lzstring
+	url = git@github.com:pieroxy/lz-string.git
+[submodule "src/js/lib/ash-js"]
+	path = src/js/lib/ash-js
+	url = git@github.com:brejep/ash-js.git
+[submodule "src/js/lib/ashjs-asteroids-example"]
+	path = src/js/lib/ashjs-asteroids-example
+	url = git@github.com:brejep/ashjs-asteroids-example.git
