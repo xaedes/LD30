@@ -32,6 +32,15 @@ define([
             this.game.addEntity(entity);
             return entity;
         },
+        createCreateSquadButton: function() {
+            var entity = new Ash.Entity()
+                .add(new Components.Display())
+                .add(new Components.Button("Create Squad"))
+                .add(new Components.Emits(Components.CreateSquadCommando))
+                ;
+            this.game.addEntity(entity);
+            return entity;
+        },
         createSquad: function() {
             var entity = new Ash.Entity()
                 .add(new Components.Squad())

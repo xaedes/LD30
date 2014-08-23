@@ -12,6 +12,7 @@ define([
     'game/systems/ButtonEmitterSystem',    
     'game/systems/RandomNameSystem',    
     'game/systems/HireCommandoSystem',    
+    'game/systems/CreateSquadCommandoSystem',    
 
     'game/systems/SystemPriorities',    
     'game/EntityCreator', 
@@ -29,6 +30,7 @@ define([
     ButtonEmitterSystem,
     RandomNameSystem,
     HireCommandoSystem,
+    CreateSquadCommandoSystem,
 
     SystemPriorities,
     EntityCreator
@@ -48,16 +50,18 @@ define([
 
             this.creator = new EntityCreator(this.engine);
 
-            this.engine.addSystem( new PersonDisplaySystem(),               SystemPriorities.only);
-            this.engine.addSystem( new SquadDisplaySystem(),                SystemPriorities.only);
-            this.engine.addSystem( new SquadMemberDisplaySystem(),          SystemPriorities.only);
-            this.engine.addSystem( new ButtonDisplaySystem(),               SystemPriorities.only);
-            this.engine.addSystem( new ButtonEmitterSystem(this.creator),   SystemPriorities.only);
-            this.engine.addSystem( new RandomNameSystem(),                  SystemPriorities.only);
-            this.engine.addSystem( new HireCommandoSystem(this.creator),    SystemPriorities.only);
+            this.engine.addSystem( new PersonDisplaySystem(),                   SystemPriorities.only);
+            this.engine.addSystem( new SquadDisplaySystem(),                    SystemPriorities.only);
+            this.engine.addSystem( new SquadMemberDisplaySystem(),              SystemPriorities.only);
+            this.engine.addSystem( new ButtonDisplaySystem(),                   SystemPriorities.only);
+            this.engine.addSystem( new ButtonEmitterSystem(this.creator),       SystemPriorities.only);
+            this.engine.addSystem( new RandomNameSystem(),                      SystemPriorities.only);
+            this.engine.addSystem( new HireCommandoSystem(this.creator),        SystemPriorities.only);
+            this.engine.addSystem( new CreateSquadCommandoSystem(this.creator), SystemPriorities.only);
 
 
             this.creator.createHireButton();
+            this.creator.createCreateSquadButton();
             // create 5 soldiers
             for (var i = 0; i < 5; i++) {
                 this.creator.createSoldier(null);

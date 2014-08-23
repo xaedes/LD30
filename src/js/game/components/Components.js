@@ -9,6 +9,7 @@ define([
     'game/components/Button',
     'game/components/Emits',
     'game/components/HireCommando',
+    'game/components/CreateSquadCommando',
 
     // insert new componente above
     'ash'
@@ -23,6 +24,7 @@ define([
     Button,
     Emits,
     HireCommando,
+    CreateSquadCommando,
 
     // insert new componente above
     Ash
@@ -38,6 +40,7 @@ define([
         Button: Button,
         Emits: Emits,
         HireCommando: HireCommando,
+        CreateSquadCommando: CreateSquadCommando,
 
         // insert new componente above
     
