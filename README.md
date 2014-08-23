@@ -1,6 +1,16 @@
 Our Entry for Ludum Dare 30 Jam - Theme "Connected Worlds"
 -------------------------
 
+### Game Idea (thoughts so far.. an not all in english^^)
+
+
+Stargate-ish 
+
+Gameplay
+1. Senden von Einsatztruppen durchs Tor: mit Timer wann sie sich melden oder wann sie zurück kommen (+ unerwartete Verzögerung)
+2. Untersuchen zurückgebrachter Artefakte für neue Technologien + Erhöhung des Budgets, dass man vom Staat bekommt
+
+
 ### Stack
 
 * JavaScript
