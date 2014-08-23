@@ -13,3 +13,6 @@
 [submodule "src/js/lib/ashjs-asteroids-example"]
 	path = src/js/lib/ashjs-asteroids-example
 	url = git@github.com:brejep/ashjs-asteroids-example.git
+[submodule "src/js/lib/chancejs"]
+	path = src/js/lib/chancejs
+	url = git@github.com:victorquinn/chancejs.git

@@ -8,6 +8,7 @@ define([
     var PersonDisplayNode = Ash.Node.create({
         person : Components.Person,
         display : Components.Display,
+        name : Components.Name,
     });
 
     return PersonDisplayNode;

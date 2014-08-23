@@ -1,19 +1,21 @@
 define([
     'ash', 
-    'game/nodes/PersonDisplayNode', 
+    'game/nodes/RandomNameNode', 
     'game/components/Components',
     'jquery', 
-    'sprintf'
-], function (Ash, PersonDisplayNode, Components, $, sp) {
-    var PersonDisplaySystem = Ash.System.extend({
+    'sprintf',
+    'chancejs',
+], function (Ash, RandomNameNode, Components, $, sp, Chance) {
+    var RandomNameSystem = Ash.System.extend({
         nodes: null,
 
         constructor: function () {
+            this.chance = new Chance();
             return this;
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(PersonDisplayNode);
+            this.nodes = engine.getNodeList(RandomNameNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -27,18 +29,7 @@ define([
 
 
         addNode: function (node) {
-            html = [
-                "<div class='soldier'>",
-                    "<span class='first'>",
-                        node.name.first,
-                    "</span> ",
-                    "<span class='last'>",
-                        node.name.last,
-                    "</span>",
-                "</div>",
-            ];
-
-            $("#soldiers").append(html.join("\n"));
+            node.entity.add(new Components.Name(this.chance.first(),this.chance.last()));
         },
 
         removeNode: function (node) {
@@ -56,5 +47,5 @@ define([
         }
     });
 
-    return PersonDisplaySystem;
+    return RandomNameSystem;
 });

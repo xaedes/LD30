@@ -6,8 +6,9 @@ define([
     'brejep/keypoll',
 
     'game/systems/PersonDisplaySystem',    
-    'game/systems/SystemPriorities',    
+    'game/systems/RandomNameSystem',    
 
+    'game/systems/SystemPriorities',    
     'game/EntityCreator', 
 ], function (
     Ash,
@@ -17,8 +18,9 @@ define([
     KeyPoll,
 
     PersonDisplaySystem,
-    SystemPriorities,
+    RandomNameSystem,
 
+    SystemPriorities,
     EntityCreator
 ) {
 
@@ -35,6 +37,7 @@ define([
             this.tickProvider = new TickProvider(null);
 
             this.engine.addSystem( new PersonDisplaySystem(), SystemPriorities.only);
+            this.engine.addSystem( new RandomNameSystem(), SystemPriorities.only);
 
             this.creator = new EntityCreator(this.engine);
 

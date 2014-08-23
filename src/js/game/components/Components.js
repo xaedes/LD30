@@ -1,12 +1,16 @@
 define([
     'game/components/Person',
     'game/components/Display',
+    'game/components/RandomName',
+    'game/components/Name',
 
     // insert new componente above
     'ash'
 ], function (
     Person,
     Display,
+    RandomName,
+    Name,
 
     // insert new componente above
     Ash
@@ -14,6 +18,8 @@ define([
     var Components = {
         Person: Person,
         Display: Display,
+        RandomName: RandomName,
+        Name: Name,
 
         // insert new componente above
     

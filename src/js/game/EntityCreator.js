@@ -22,6 +22,7 @@ define([
         createSoldier: function() {
             var entity = new Ash.Entity()
                 .add(new Components.Person())
+                .add(new Components.RandomName())
                 .add(new Components.Display())
                 ;
             this.game.addEntity(entity);
