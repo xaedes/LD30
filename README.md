@@ -10,6 +10,10 @@ Gameplay
 1. Senden von Einsatztruppen durchs Tor: mit Timer wann sie sich melden oder wann sie zurück kommen (+ unerwartete Verzögerung)
 2. Untersuchen zurückgebrachter Artefakte für neue Technologien + Erhöhung des Budgets, dass man vom Staat bekommt
 
+Nordische Mythologie??
+Asgard
+Bifröst 
+http://en.wikipedia.org/wiki/Norse_cosmology#Nine_Homeworlds
 
 ### Stack
 
