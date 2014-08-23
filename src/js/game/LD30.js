@@ -14,6 +14,8 @@ define([
     'game/systems/HireCommandoSystem',    
     'game/systems/CreateSquadCommandoSystem',    
     'game/systems/RequestSquadNameSystem',    
+    'game/systems/ChangeSquadSystem',    
+    'game/systems/DropDownListSystem',    
 
     'game/systems/SystemPriorities',    
     'game/EntityCreator', 
@@ -33,6 +35,8 @@ define([
     HireCommandoSystem,
     CreateSquadCommandoSystem,
     RequestSquadNameSystem,
+    ChangeSquadSystem,
+    DropDownListSystem,
 
     SystemPriorities,
     EntityCreator
@@ -61,6 +65,8 @@ define([
             this.engine.addSystem( new HireCommandoSystem(this.creator),        SystemPriorities.only);
             this.engine.addSystem( new CreateSquadCommandoSystem(this.creator), SystemPriorities.only);
             this.engine.addSystem( new RequestSquadNameSystem(),                SystemPriorities.only);
+            this.engine.addSystem( new ChangeSquadSystem(this.creator),         SystemPriorities.only);
+            this.engine.addSystem( new DropDownListSystem(),                    SystemPriorities.only);
 
 
             this.creator.createHireButton();
