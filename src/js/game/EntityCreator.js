@@ -46,6 +46,7 @@ define([
                 .add(new Components.Display())
                 .add(new Components.DropDownList("Change Squad"))
                 .add(new Components.Emits(Components.ChangeSquadCommand))
+                .add(new Components.Affects(soldier))
                 ;
             this.game.addEntity(entity);
             return entity;
