@@ -6,7 +6,9 @@ define([
     Components
 ) {
     var SelectedSquadNode = Ash.Node.create({
-        selectedSquad: Components.SelectedSquad,
+        selectable : Components.Selectable,
+        selected: Components.Selected,
+        squad: Components.Squad,
         htmlObject: Components.HTMLObject,
     });
 

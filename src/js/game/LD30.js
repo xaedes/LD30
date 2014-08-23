@@ -19,6 +19,7 @@ define([
     'game/systems/DropDownOptionDisplaySystem',    
     'game/systems/DropDownOptionEmitterSystem',    
     'game/systems/ChangeSquadCommandSystem',    
+    'game/systems/SquadSelectionSystem',    
 
     'game/systems/SystemPriorities',    
     'game/EntityCreator', 
@@ -43,6 +44,7 @@ define([
     DropDownOptionDisplaySystem,
     DropDownOptionEmitterSystem,
     ChangeSquadCommandSystem,
+    SquadSelectionSystem,
 
     SystemPriorities,
     EntityCreator
@@ -68,13 +70,14 @@ define([
             this.engine.addSystem( new ButtonDisplaySystem(),                       SystemPriorities.only);
             this.engine.addSystem( new ButtonEmitterSystem(this.creator),           SystemPriorities.only);
             this.engine.addSystem( new RandomNameSystem(),                          SystemPriorities.only);
-            this.engine.addSystem( new HireCommandSystem(this.creator),            SystemPriorities.only);
-            this.engine.addSystem( new CreateSquadCommandSystem(this.creator),     SystemPriorities.only);
+            this.engine.addSystem( new HireCommandSystem(this.creator),             SystemPriorities.only);
+            this.engine.addSystem( new CreateSquadCommandSystem(this.creator),      SystemPriorities.only);
             this.engine.addSystem( new RequestSquadNameSystem(),                    SystemPriorities.only);
             this.engine.addSystem( new ChangeSquadSystem(this.creator),             SystemPriorities.only);
             this.engine.addSystem( new DropDownListSystem(),                        SystemPriorities.only);
             this.engine.addSystem( new ChangeSquadCommandSystem(),                  SystemPriorities.only);
             this.engine.addSystem( new DropDownOptionEmitterSystem(this.creator),   SystemPriorities.only);
+            this.engine.addSystem( new SquadSelectionSystem(),                      SystemPriorities.only);
             this.engine.addSystem( new DropDownOptionDisplaySystem(),               SystemPriorities.dropdownoptions);
 
 
