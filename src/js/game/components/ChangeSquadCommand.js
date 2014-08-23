@@ -1,6 +1,10 @@
 define(['ash'], function (Ash) {
     var ChangeSquadCommand = Ash.Class.extend({
-        constructor: function () {
+        soldier: null,
+        squad: null,
+        constructor: function (soldier, squad) {
+        	this.soldier = soldier;
+        	this.squad = squad;
         }
     });
 

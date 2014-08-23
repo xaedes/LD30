@@ -47,13 +47,13 @@ define([
         },
 
 
-        addCanChangeNode: function (node) {
+        addCanChangeNode: function (soldierNode) {
             // create drop down list
-            var dropdown = this.creator.createChangeSquadInterface(node.entity);
+            var dropdown = this.creator.createChangeSquadInterface(soldierNode.entity);
 
             // create options
             for(var squadNode = this.squadNodes.head; squadNode; squadNode = squadNode.next) {
-                this.creator.createChangeSquadOption(dropdown, node.entity, squadNode.entity, squadNode.name);
+                this.creator.createChangeSquadOption(dropdown, soldierNode.entity, squadNode.entity, squadNode.name);
             }
         },
 
@@ -66,7 +66,6 @@ define([
 
         addDropdownAffectsNode: function (node) {
             // move drop down list to the soldier it affects
-            
             if(node.affects.entity!==null) {
                 var entityHTMLObject = node.affects.entity.get(Components.HTMLObject);
                 if(entityHTMLObject!==null) {
@@ -84,15 +83,17 @@ define([
 
         },
 
-        addSquadNode: function (node) {
-            // move drop down list to the soldier it affects
-            
-            if(node.affects.entity!==null) {
-                var entityHTMLObject = node.affects.entity.get(Components.HTMLObject);
-                if(entityHTMLObject!==null) {
-                    node.htmlObject.htmlObject.appendTo(entityHTMLObject.htmlObject);
-                }
+        addSquadNode: function (squadNode) {
+            // create options
+            for(var dropdownNode = this.dropdownAffectsNodes.head; dropdownNode; dropdownNode = dropdownNode.next) {
+                // dropDownList, soldier, squad, caption
+                this.creator.createChangeSquadOption(
+                    dropdownNode.entity,            // dropDownList
+                    dropdownNode.affects.entity,    // soldier
+                    squadNode.entity,               // squad
+                    squadNode.name);                // caption
             }
+
 
         },
 
