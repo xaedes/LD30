@@ -41,6 +41,15 @@ define([
             this.game.addEntity(entity);
             return entity;
         },
+        createChangeSquadButton: function() {
+            var entity = new Ash.Entity()
+                .add(new Components.Display())
+                .add(new Components.Button("Change Squad"))
+                .add(new Components.Emits(Components.ChangeSquadCommand))
+                ;
+            this.game.addEntity(entity);
+            return entity;
+        },
         createSquad: function() {
             var entity = new Ash.Entity()
                 .add(new Components.Squad())
@@ -55,9 +64,12 @@ define([
                 .add(new Components.Person())
                 .add(new Components.RandomName())
                 .add(new Components.Display())
+                .add(new Components.CanChangeSquad())
                 ;
             if(squad!==null) {
                 entity.add(new Components.SquadMember(squad));
+            } else {
+                entity.add(new Components.WithoutSquad());
             }
             this.game.addEntity(entity);
             return entity;

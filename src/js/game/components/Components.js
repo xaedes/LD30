@@ -12,6 +12,9 @@ define([
     'game/components/CreateSquadCommando',
     'game/components/SquadName',
     'game/components/RequestSquadName',
+    'game/components/ChangeSquadCommand',
+    'game/components/WithoutSquad',
+    'game/components/CanChangeSquad',
 
     // insert new componente above
     'ash'
@@ -29,6 +32,9 @@ define([
     CreateSquadCommando,
     SquadName,
     RequestSquadName,
+    ChangeSquadCommand,
+    WithoutSquad,
+    CanChangeSquad,
 
     // insert new componente above
     Ash
@@ -47,6 +53,9 @@ define([
         CreateSquadCommando: CreateSquadCommando,
         SquadName: SquadName,
         RequestSquadName: RequestSquadName,
+        ChangeSquadCommand: ChangeSquadCommand,
+        WithoutSquad: WithoutSquad,
+        CanChangeSquad: CanChangeSquad,
 
         // insert new componente above
     
