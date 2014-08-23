@@ -17,6 +17,8 @@ define([
     'game/components/CanChangeSquad',
     'game/components/DropDownList',
     'game/components/Affects',
+    'game/components/ChangingSquad',
+    'game/components/DropDownOption',
 
     // insert new componente above
     'ash'
@@ -39,6 +41,8 @@ define([
     CanChangeSquad,
     DropDownList,
     Affects,
+    ChangingSquad,
+    DropDownOption,
 
     // insert new componente above
     Ash
@@ -62,6 +66,8 @@ define([
         CanChangeSquad: CanChangeSquad,
         DropDownList: DropDownList,
         Affects: Affects,
+        ChangingSquad: ChangingSquad,
+        DropDownOption: DropDownOption,
 
         // insert new componente above
     

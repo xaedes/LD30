@@ -45,8 +45,18 @@ define([
             var entity = new Ash.Entity()
                 .add(new Components.Display())
                 .add(new Components.DropDownList("Change Squad"))
-                .add(new Components.Emits(Components.ChangeSquadCommand))
                 .add(new Components.Affects(soldier))
+                .add(new Components.ChangingSquad())
+                ;
+            this.game.addEntity(entity);
+            return entity;
+        },
+        createChangeSquadOption: function(soldier, squad, caption) {
+            var entity = new Ash.Entity()
+                .add(new Components.Display())
+                .add(new Components.DropDownOption(caption))
+                .add(new Components.Affects(soldier))
+                .add(new Components.ChangingSquad())
                 ;
             this.game.addEntity(entity);
             return entity;
