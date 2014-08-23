@@ -41,7 +41,7 @@ define([
             var html = [
                 "<div class='squad'>",
                     "<h2>",
-                        "<i class='fa fa-square-o fa-lg'></i>",
+                        "<i class='fa fa-lg'></i>",
                         node.name.name,
                     "</h2>",
                 "</div>",
@@ -56,7 +56,7 @@ define([
             if(htmlObject.parent().length==0) {
                 htmlObject.appendTo($("#squads"));
             }
-
+            htmlObject.find("h2>i").addClass("fa-square-o");
             var self = this;
 
             htmlObject.click(function () {

@@ -16,7 +16,7 @@ define([
     'game/components/WithoutSquad',
     'game/components/CanChangeSquad',
     'game/components/DropDownList',
-    'game/components/Affects', //to delete
+    'game/components/Parent',
     'game/components/ChangingSquad',
     'game/components/DropDownOption',
     'game/components/GotSelected', //to delete
@@ -42,7 +42,7 @@ define([
     WithoutSquad,
     CanChangeSquad,
     DropDownList,
-    Affects,
+    Parent,
     ChangingSquad,
     DropDownOption,
     GotSelected,
@@ -69,7 +69,7 @@ define([
         WithoutSquad: WithoutSquad,
         CanChangeSquad: CanChangeSquad,
         DropDownList: DropDownList,
-        Affects: Affects,
+        Parent: Parent,
         ChangingSquad: ChangingSquad,
         DropDownOption: DropDownOption,
         GotSelected: GotSelected,

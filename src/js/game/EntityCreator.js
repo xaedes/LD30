@@ -45,6 +45,7 @@ define([
             var entity = new Ash.Entity()
                 .add(new Components.Display())
                 .add(new Components.Button("Change Squad"))
+                .add(new Components.Parent(soldier))
                 .add(new Components.Emits(Components.ChangeSquadCommand, soldier))
                 .add(new Components.ChangingSquad())
                 ;

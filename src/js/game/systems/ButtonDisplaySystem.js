@@ -36,6 +36,12 @@ define([
             var htmlObject = $(html.join("\n"));
             node.entity.add(new Components.HTMLObject(htmlObject));
 
+            var parent = node.entity.get(Components.Parent);
+            if (parent !== null) {
+                var parentHTML = parent.entity.get(Components.HTMLObject);
+                htmlObject.appendTo(parentHTML.htmlObject);
+            }
+
             // append it to the DOM in a default location if there 
             // is no parent yet (due to other systems)
             if(htmlObject.parent().length==0) {
