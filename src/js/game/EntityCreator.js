@@ -18,7 +18,20 @@ define([
         destroyEntity: function(entity) {
             this.game.removeEntity(entity);
         }, 
-
+        createEntity: function() {
+            var entity = new Ash.Entity();
+            this.game.addEntity(entity);
+            return entity;
+        },
+        createHireButton: function() {
+            var entity = new Ash.Entity()
+                .add(new Components.Display())
+                .add(new Components.Button("Hire"))
+                .add(new Components.Emits(Components.HireCommando))
+                ;
+            this.game.addEntity(entity);
+            return entity;
+        },
         createSquad: function() {
             var entity = new Ash.Entity()
                 .add(new Components.Squad())

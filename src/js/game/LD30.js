@@ -8,7 +8,10 @@ define([
     'game/systems/PersonDisplaySystem',    
     'game/systems/SquadDisplaySystem',    
     'game/systems/SquadMemberDisplaySystem',    
+    'game/systems/ButtonDisplaySystem',    
+    'game/systems/ButtonEmitterSystem',    
     'game/systems/RandomNameSystem',    
+    'game/systems/HireCommandoSystem',    
 
     'game/systems/SystemPriorities',    
     'game/EntityCreator', 
@@ -22,7 +25,10 @@ define([
     PersonDisplaySystem,
     SquadDisplaySystem,
     SquadMemberDisplaySystem,
+    ButtonDisplaySystem,
+    ButtonEmitterSystem,
     RandomNameSystem,
+    HireCommandoSystem,
 
     SystemPriorities,
     EntityCreator
@@ -40,18 +46,21 @@ define([
 
             this.tickProvider = new TickProvider(null);
 
-            this.engine.addSystem( new PersonDisplaySystem(), SystemPriorities.only);
-            this.engine.addSystem( new SquadDisplaySystem(), SystemPriorities.only);
-            this.engine.addSystem( new SquadMemberDisplaySystem(), SystemPriorities.only);
-            this.engine.addSystem( new RandomNameSystem(), SystemPriorities.only);
-
             this.creator = new EntityCreator(this.engine);
 
-            // create 5 soldiers
+            this.engine.addSystem( new PersonDisplaySystem(),               SystemPriorities.only);
+            this.engine.addSystem( new SquadDisplaySystem(),                SystemPriorities.only);
+            this.engine.addSystem( new SquadMemberDisplaySystem(),          SystemPriorities.only);
+            this.engine.addSystem( new ButtonDisplaySystem(),               SystemPriorities.only);
+            this.engine.addSystem( new ButtonEmitterSystem(this.creator),   SystemPriorities.only);
+            this.engine.addSystem( new RandomNameSystem(),                  SystemPriorities.only);
+            this.engine.addSystem( new HireCommandoSystem(this.creator),    SystemPriorities.only);
 
-            var squad = this.creator.createSquad();
+
+            this.creator.createHireButton();
+            // create 5 soldiers
             for (var i = 0; i < 5; i++) {
-                this.creator.createSoldier(squad);
+                this.creator.createSoldier(null);
             };
 
         },
