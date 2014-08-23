@@ -30,11 +30,13 @@ define([
             // create htmlObject
             var html = [
                 "<div class='soldier'>",
-                    "<span class='first'>",
-                        node.name.first,
-                    "</span> ",
-                    "<span class='last'>",
-                        node.name.last,
+                    "<span class='name'>",
+                        "<span class='first'>",
+                            node.name.first,
+                        "</span> ",
+                        "<span class='last'>",
+                            node.name.last,
+                        "</span>",
                     "</span>",
                 "</div>",
             ];

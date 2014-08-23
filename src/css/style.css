@@ -1,1 +1,17 @@
  
+.soldier .name {
+	width: 120pt;
+	display: block;
+	float: left;
+}
+.dropDownList {
+	float: left;
+}
+
+.soldier {
+	clear: both;
+}
+
+h1, h2 {
+	clear: both;
+}

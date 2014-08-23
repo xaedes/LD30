@@ -29,7 +29,7 @@ define([
         addNode: function (node) {
             // create htmlObject
             var html = [
-                "<div>",
+                "<div class='dropDownList'>",
                     "<select>",
                     "</select>",
                     "<button>",
