@@ -5,9 +5,9 @@ define([
     Ash, 
     Components
 ) {
-    var ChangeSquadNode = Ash.Node.create({
+    var CanChangeSquadNode = Ash.Node.create({
         canChangeSquad: Components.CanChangeSquad,
     });
 
-    return ChangeSquadNode;
+    return CanChangeSquadNode;
 });
