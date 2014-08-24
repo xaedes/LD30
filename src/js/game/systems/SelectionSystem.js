@@ -1,12 +1,12 @@
 define([
     'ash', 
-    'game/nodes/SelectableSquadNode', 
-    'game/nodes/SelectedSquadNode', 
+    'game/nodes/SelectableNode', 
+    'game/nodes/SelectedNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, SelectableSquadNode, SelectedSquadNode, Components, $, sp) {
-    var SquadSelectionSystem = Ash.System.extend({
+], function (Ash, SelectableNode, SelectedNode, Components, $, sp) {
+    var SelectionSystem = Ash.System.extend({
         nodes: null,
         selectedNodes: null,
 
@@ -15,7 +15,7 @@ define([
         },
 
         addToEngine: function (engine) {
-            this.nodes = engine.getNodeList(SelectableSquadNode);
+            this.nodes = engine.getNodeList(SelectableNode);
             for(var node = this.nodes.head; node; node = node.next) {
                 this.addNode(node);
             }
@@ -23,7 +23,7 @@ define([
             this.nodes.nodeRemoved.add(this.removeNode, this);
 
 
-            this.selectedNodes = engine.getNodeList(SelectedSquadNode);
+            this.selectedNodes = engine.getNodeList(SelectedNode);
             for(var node = this.selectedNodes.head; node; node = node.next) {
                 this.addSelectedNode(node);
             }
@@ -76,5 +76,5 @@ define([
         }
     });
 
-    return SquadSelectionSystem;
+    return SelectionSystem;
 });

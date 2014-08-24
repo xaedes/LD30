@@ -5,11 +5,10 @@ define([
     Ash, 
     Components
 ) {
-    var SelectableSquadNode = Ash.Node.create({
-        squad : Components.Squad,
+    var SelectableNode = Ash.Node.create({
         selectable : Components.Selectable,
         htmlObject : Components.HTMLObject,
     });
 
-    return SelectableSquadNode;
+    return SelectableNode;
 });
