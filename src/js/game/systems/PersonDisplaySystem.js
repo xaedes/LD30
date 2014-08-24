@@ -1,12 +1,14 @@
 define([
     'ash', 
     'game/nodes/PersonDisplayNode', 
+    'game/nodes/SelectedPersonNode', 
     'game/components/Components',
     'jquery', 
     'sprintf'
-], function (Ash, PersonDisplayNode, Components, $, sp) {
+], function (Ash, PersonDisplayNode, SelectedPersonNode, Components, $, sp) {
     var PersonDisplaySystem = Ash.System.extend({
         nodes: null,
+        selectedNodes: null,
 
         constructor: function () {
             return this;
@@ -19,6 +21,8 @@ define([
             }
             this.nodes.nodeAdded.add(this.addNode, this);
             this.nodes.nodeRemoved.add(this.removeNode, this);
+            
+            this.selectedNodes = engine.getNodeList(SelectedPersonNode);
         },
 
         removeFromEngine: function (engine) {
@@ -31,6 +35,7 @@ define([
             var html = [
                 "<div class='soldier'>",
                     "<span class='name'>",
+                        "<i class='fa fa-lg'></i>",
                         "<span class='first'>",
                             node.name.first,
                         "</span> ",
@@ -42,6 +47,8 @@ define([
             ];
             var htmlObject = $(html.join("\n"));
             node.entity.add(new Components.HTMLObject(htmlObject));
+
+            node.entity.add(new Components.Selectable('.name','.name>i','fa-square-o','fa-check-square-o', this.selectedNodes));
 
             // append it to the DOM in a default location if there 
             // is no parent yet (due to other systems)
