@@ -1,6 +1,11 @@
-.PHONY: server tab2space
+include ./Config.mk
+.PHONY: deploy server tab2space
 
 do_nothing:
+
+deploy:
+	scp -r src/* $(DEPLOY_DEST)
+
 
 server: 
 	# sleep 1 && xdg-open "http://localhost:8082" &
