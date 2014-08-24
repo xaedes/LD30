@@ -39,9 +39,9 @@ define([
         },
 
         update: function (time) {
-            for(var node = this.nodes.head; node; node = node.next) {
-                this.updateNode(node);
-            }
+            // for(var node = this.nodes.head; node; node = node.next) {
+            //     this.updateNode(node);
+            // }
         }
     });
 
