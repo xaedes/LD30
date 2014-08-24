@@ -19,6 +19,7 @@ define([
     'game/systems/DropDownOptionDisplaySystem',    
     'game/systems/DropDownOptionEmitterSystem',    
     'game/systems/ChangeSquadCommandSystem',    
+    'game/systems/SelectionSystem',    
 
     'game/systems/SystemPriorities',    
     'game/EntityCreator', 
@@ -43,6 +44,7 @@ define([
     DropDownOptionDisplaySystem,
     DropDownOptionEmitterSystem,
     ChangeSquadCommandSystem,
+    SelectionSystem,
 
     SystemPriorities,
     EntityCreator
@@ -75,6 +77,7 @@ define([
             this.engine.addSystem( new DropDownListSystem(),                        SystemPriorities.only);
             this.engine.addSystem( new ChangeSquadCommandSystem(this.creator),      SystemPriorities.only);
             this.engine.addSystem( new DropDownOptionEmitterSystem(this.creator),   SystemPriorities.only);
+            this.engine.addSystem( new SelectionSystem(),                           SystemPriorities.only);
             this.engine.addSystem( new DropDownOptionDisplaySystem(),               SystemPriorities.dropdownoptions);
 
 
